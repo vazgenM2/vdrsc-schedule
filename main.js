@@ -51,11 +51,11 @@ let res;
 fetch('/data/data.json')
 	.then(data => data.json())
 	.then(data => res = data['data'])
-	.then(() => start())
+	// .then(() => start()) 
 
 
 
-function start() {
+// function start() {
 	document.querySelector('.course-btn').addEventListener('click', () => {
 		let index;
 		if (courseName) {
@@ -101,4 +101,4 @@ function start() {
 		}
 	})
 
-}
+// }
