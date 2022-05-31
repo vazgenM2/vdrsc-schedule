@@ -50,7 +50,7 @@ let names = {
 let res;
 fetch('/data/data.json')
 	.then(data => data.json())
-	.then(data => res = data)
+	.then(data => res = data['data'])
 	.then(() => start())
 
 
