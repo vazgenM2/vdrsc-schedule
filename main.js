@@ -52,6 +52,7 @@ fetch('/data/data.json')
 	.then(data => data.json())
 	.then(data => res = data['data'])
 	// .then(() => start()) 
+	.catch(err => console.log(err))
 
 
 
