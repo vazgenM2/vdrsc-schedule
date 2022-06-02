@@ -12,6 +12,7 @@ body,html {
 	overflow-x: hidden;
 }
 .back {
+	z-index: 5;
 	display: inline-block;
 	transform: rotate(180deg);
 	position: absolute;
@@ -24,6 +25,7 @@ body,html {
 	transition: 0.3s;
 	font-size: 40px;
 	display: none;
+	border: 2px solid #fff;
 }
 .back:hover {
 	background-color: #687e91;
@@ -40,18 +42,23 @@ body,html {
 	background-color: #8DA2B4;
 	padding: 10px 30px;
 	margin: 0 auto;
+	max-width: 100%;
 	display: flex;
 	width: auto;
 	flex-direction: column;
 	height: 200px;
 	overflow: scroll;
-	/* align-items: center; */
-	/* overflow-x: scroll; */
 }
 .same-course {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
+	position: relative;
+	padding: 5px 0;
+	border-bottom: 2px solid #29486150;
+}
+.same-course:last-child {
+	border-bottom: none;
 }
 ::-webkit-scrollbar {
 	width: 10px;
@@ -145,20 +152,36 @@ button:hover {
 	justify-content: space-between;
 }
 .course-page {
-	width: 100%;
+	background-color: #889daf;
+	margin: 0 auto;
 	display: none;
-	flex-wrap: wrap;
-	flex-direction: row;
+	overflow: scroll;
+	/* flex-wrap: wrap; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	flex-direction: column;
+}
+.course-page > div {
+	background-color: #889daf;
+	/* position: absolute; */
+	display: flex;
+	flex-wrap: wrap; 	
+	justify-content: center;
+	/* top: 50%; */
+	/* transform: translateY(-50%); */
+	/* top: 0; */
+	/* left: 0; */
 }
 .week-name {
 	text-align: center;
-	text-decoration: underline;
-	background-color: #09243a;
+	background-color: #304a61;
 	padding: 10px 0;
+	font-weight: bold;
 	margin: 0;
 	border-bottom: 1px solid #fff;
 }
 .week {
+	/* flex-grow: 1; */
 	min-width: 200px;
 	margin: 10px;
 	border: 2px solid #fff;
@@ -171,14 +194,16 @@ button:hover {
 }
 .week ul li {
 	height: 20px;
-	padding: 5px 10px;
-	padding-left: 30px;
+	padding: 5px 20px 5px 30px;
 	width: 100%;
 	border-bottom: 1px solid #fff;
-	background-color: #294861;
+	background-color: #668199;
 	display: flex;
 	align-items: center;
 	position: relative;
+}
+.week ul li:nth-child(even) {
+	background-color: #6d879d;
 }
 .week ul li::before {
 	position: absolute;
@@ -186,7 +211,7 @@ button:hover {
 	content: '1';
 	width: 25px;
 	height: 100%;
-	background-color: #09243a;
+	background-color: #304a61;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -223,4 +248,18 @@ button:hover {
 
 .week ul li:last-child {
 	border-bottom: none;
+}
+
+@media screen and (max-width: 463px) {
+	.courses .item {
+		width: calc(50% - 15px);
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.title {
+		font-size: 30px;
+		margin-bottom: 0;
+	}
 }
