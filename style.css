@@ -255,6 +255,17 @@ button:hover {
 	border-bottom: none;
 }
 
+.mes {
+	padding: 5px 10px;
+	background-color: rgb(153, 208, 135);
+	position: absolute;
+	top: 0px;
+	display: none;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
 @media screen and (max-width: 463px) {
 	.courses .item {
 		width: calc(50% - 15px);
