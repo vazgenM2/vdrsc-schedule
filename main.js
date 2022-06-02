@@ -65,7 +65,6 @@ let res = data['data'];
 	document.querySelector('.course-btn').addEventListener('click', () => {
 		let index;
 		if (courseName) {
-			// console.log(res[0]);
 			for (let i = 0; i < res[0].length; i++) {
 				if (res[0][i] === names[courseName]) {
 					index = i
@@ -79,32 +78,80 @@ let res = data['data'];
 
 		}
 		function show() {
+			let lessonW1 = 1
+			let lessonW2 = 1
+			let lessonW3 = 1
+			let lessonW4 = 1
+			let lessonW5 = 1
 			for (let i = 1; i < 11; i++) {
 				let newLesson = document.createElement('li')
 				newLesson.innerHTML = res[i][index]
+				newLesson.classList.add('w1')
+				newLesson.classList.add('l'+lessonW1)
 				document.querySelector('.week1').appendChild(newLesson)
+				lessonW1++
 			}
 			for (let i = 11; i < 21; i++) {
 				let newLesson = document.createElement('li')
+				newLesson.classList.add('w2')
+				newLesson.classList.add('l'+lessonW2)
 				newLesson.innerHTML = res[i][index]
 				document.querySelector('.week2').appendChild(newLesson)
+				lessonW2++
 			}
 			for (let i = 21; i < 31; i++) {
 				let newLesson = document.createElement('li')
+				newLesson.classList.add('w3')
+				newLesson.classList.add('l'+lessonW3)
 				newLesson.innerHTML = res[i][index]
 				document.querySelector('.week3').appendChild(newLesson)
+				lessonW3++
 			}
 			for (let i = 31; i < 41; i++) {
 				let newLesson = document.createElement('li')
+				newLesson.classList.add('w4')
+				newLesson.classList.add('l'+lessonW4)
 				newLesson.innerHTML = res[i][index]
 				document.querySelector('.week4').appendChild(newLesson)
+				lessonW4++
 			}
 			for (let i = 41; i < 51; i++) {
 				let newLesson = document.createElement('li')
+				newLesson.classList.add('w5')
+				newLesson.classList.add('l'+lessonW5)
 				newLesson.innerHTML = res[i][index]
 				document.querySelector('.week5').appendChild(newLesson)
+				lessonW5++
 			}
-		}
+			selectLesson()
+			setInterval(() => {
+				selectLesson()
+			},1000)
+	}
 	})
 
 // }
+
+let timing = [
+	[9,40,'1'],[9,45,'d1'],[10,25,'2'],[10,30,'d2'],[11,10,'3'],[11,15,'d3'],[11,55,'4'],[12,10,'d4'],
+	[12,50,'5'],[12,55,'d5'],[13,35,'6'],[13,40,'d6'],[14,20,'7'],[14,25,'d7'],[15,5,'8'],[15,10,'d8']
+]
+
+let date = new Date()
+
+
+
+function selectLesson() {
+	let dateInfo = {
+		day: date.getDay(),
+		time: [date.getHours(),date.getMinutes()] 
+	}
+	let day;
+	for(let i = 0; i < timing.length; i++) {
+		if(dateInfo.time[0] <= timing[i][0] && dateInfo.time[1] <= timing[i][1]) {
+			day = '.w'+dateInfo.day + '.l'+ timing[i][2]
+		}
+	}
+	document.querySelector('.w3.l2').classList.add('time')
+	console.log(day)
+}
