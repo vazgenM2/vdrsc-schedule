@@ -102,6 +102,7 @@ body,html {
 	font-weight: bold;
 	cursor: pointer;
 	transition: 0.3s;
+	font-size: 19px;
 }
 .end-block {
 	margin: 5px;
@@ -263,6 +264,9 @@ button:hover {
 	display: none;
 	font-weight: bold;
 	font-size: 20px;
+}
+.course-btn {
+	font-size: 18px;
 }
 
 
